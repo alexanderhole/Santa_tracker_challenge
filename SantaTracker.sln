@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaTracker", "SantaTracker\SantaTracker.csproj", "{12886F5B-A616-4C7A-B1B9-EC802B5296F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaTrackerTests", "SantaTrackerTests\SantaTrackerTests.csproj", "{856C0647-640A-4293-B2AF-949A47F6D5FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12886F5B-A616-4C7A-B1B9-EC802B5296F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12886F5B-A616-4C7A-B1B9-EC802B5296F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12886F5B-A616-4C7A-B1B9-EC802B5296F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12886F5B-A616-4C7A-B1B9-EC802B5296F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{856C0647-640A-4293-B2AF-949A47F6D5FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{856C0647-640A-4293-B2AF-949A47F6D5FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{856C0647-640A-4293-B2AF-949A47F6D5FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{856C0647-640A-4293-B2AF-949A47F6D5FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
