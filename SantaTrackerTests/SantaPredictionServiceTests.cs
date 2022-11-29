@@ -20,10 +20,14 @@ public class SantaPredictionServiceTests
     {
         var timeToPredict = new DateTime(2022, 12, 24, 9, 0, 0);
 
-        var expectedX = 30;
-        var expectedY = 30;
+        var expectedX = .30;
+        var expectedY = .30;
         _knownPositions.Setup(x => x.GetKnownPositions()).Returns(new List<KnownTimings>()
-            { new() { Eta = timeToPredict, X = expectedX, Y = expectedY } });
+        {
+            new() { Eta = timeToPredict, RelativePositionX = expectedX, RelativePositionY = expectedY },
+            new() { Eta = new DateTime(2022, 12, 24, 10, 00, 0), RelativePositionX = .40, RelativePositionY = .30 } ,
+
+        });
         var position = _service.PredictPositionOfSanta(timeToPredict);
         
         Assert.Equal(expectedX,position.X);
@@ -37,8 +41,8 @@ public class SantaPredictionServiceTests
 
         _knownPositions.Setup(x => x.GetKnownPositions()).Returns(new List<KnownTimings>()
         {
-            new() { Eta = new DateTime(2022, 12, 24, 9, 00, 0), X = 30, Y = 30 } ,
-            new() { Eta = new DateTime(2022, 12, 24, 10, 00, 0), X = 30, Y = 40 } ,
+            new() { Eta = new DateTime(2022, 12, 24, 9, 00, 0), RelativePositionX = 30, RelativePositionY = .30 } ,
+            new() { Eta = new DateTime(2022, 12, 24, 10, 00, 0), RelativePositionX = 30, RelativePositionY = .40 } ,
 
         });
         var position = _service.PredictPositionOfSanta(timeToPredict);
@@ -54,8 +58,8 @@ public class SantaPredictionServiceTests
 
         _knownPositions.Setup(x => x.GetKnownPositions()).Returns(new List<KnownTimings>()
         {
-            new() { Eta = new DateTime(2022, 12, 24, 9, 00, 0), X = 30, Y = 30 } ,
-            new() { Eta = new DateTime(2022, 12, 24, 10, 00, 0), X = 40, Y = 30 } ,
+            new() { Eta = new DateTime(2022, 12, 24, 9, 00, 0), RelativePositionX = .30, RelativePositionY = .30 } ,
+            new() { Eta = new DateTime(2022, 12, 24, 10, 00, 0), RelativePositionX = .40, RelativePositionY = .30 } ,
 
         });
         var position = _service.PredictPositionOfSanta(timeToPredict);
@@ -71,13 +75,32 @@ public class SantaPredictionServiceTests
 
         _knownPositions.Setup(x => x.GetKnownPositions()).Returns(new List<KnownTimings>()
         {
-            new() { Eta = new DateTime(2022, 12, 24, 9, 00, 0), X = 30, Y = 30 } ,
-            new() { Eta = new DateTime(2022, 12, 24, 10, 00, 0), X = 40, Y = 30 } ,
+            new() { Eta = new DateTime(2022, 12, 24, 9, 00, 0), RelativePositionX = .30, RelativePositionY = .30 } ,
+            new() { Eta = new DateTime(2022, 12, 24, 10, 00, 0), RelativePositionX = .40,RelativePositionY  = .30 } ,
 
         });
         var position = _service.PredictPositionOfSanta(timeToPredict);
         
         Assert.Equal(32,position.X);
         Assert.Equal(30, position.y);
+    }
+
+    [Theory]
+    [InlineData(10)]
+    [InlineData(23)]
+    [InlineData(18)]
+    public void GetMinutesToNextStop_ShouldReturn_CorrectMinutes(int expectedMinutes)
+    {
+        var timeToPredict = new DateTime(2022, 12, 24, 9, 60 - expectedMinutes, 0);
+
+        _knownPositions.Setup(x => x.GetKnownPositions()).Returns(new List<KnownTimings>()
+        {
+            new() { Eta = new DateTime(2022, 12, 24, 9, 00, 0), RelativePositionX = .30, RelativePositionY = .30 } ,
+            new() { Eta = new DateTime(2022, 12, 24, 10, 00, 0), RelativePositionX = .40, RelativePositionY = .30 } ,
+
+        });
+        var minutes = _service.GetMinutesToNextStop(timeToPredict);
+        
+        Assert.Equal(expectedMinutes, minutes.minutesToNextStop);
     }
 }

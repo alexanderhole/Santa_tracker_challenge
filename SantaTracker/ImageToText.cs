@@ -1,20 +1,8 @@
-using System.Text;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.Processing;
-
 public class ImageToText
 {
-    public static string LibBitmapToAscii(string fileName)
+    public static Grid BitmapToGrid()
     {
-        var image = Image();
-        var sb = new StringBuilder();
-        return AscArt.GenerateAsciiArt(image, (int)Math.Round((double)(image.Width * 0.8)));
-    }
-
-    public static Grid MineBitmapToAscii(string fileName)
-    {
-        var image = Image();
+        var image = LoadImageAndCache.GetImage();
         var grid = new Grid();
         for (int y = 0; y < image.Height; y++)
         {
@@ -39,11 +27,4 @@ public class ImageToText
         return grid;
     }
 
-    private static Image<Rgba32> Image()
-    {
-        using var file = new FileStream("map.bmp", FileMode.Open);
-        var image = SixLabors.ImageSharp.Image.Load<Rgba32>(file);
-        image.Mutate(x => x.Resize(180, 100));
-        return image;
-    }
 }

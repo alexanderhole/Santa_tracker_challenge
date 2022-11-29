@@ -12,6 +12,8 @@
       &lt;TestId&gt;xUnit::856C0647-640A-4293-B2AF-949A47F6D5FF::net6.0::SantaTrackerTests.SantaPredictionServiceTests.PredicateSantaPlacement_ShouldReturnMidWayPoint_OnY_OnHalfHour&lt;/TestId&gt;
       &lt;TestId&gt;xUnit::856C0647-640A-4293-B2AF-949A47F6D5FF::net6.0::SantaTrackerTests.SantaPredictionServiceTests.PredicateSantaPlacement_ShouldReturnMidWayPoint_OnX_OnHalfHour&lt;/TestId&gt;
       &lt;TestId&gt;xUnit::856C0647-640A-4293-B2AF-949A47F6D5FF::net6.0::SantaTrackerTests.SantaPredictionServiceTests.PredicateSantaPlacement_ShouldReturnQuarterPoint_OnX_OnQuarterPast&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::856C0647-640A-4293-B2AF-949A47F6D5FF::net6.0::SantaTrackerTests.SantaPredictionServiceTests.GetMinutesToNextStop_ShouldReturn_10mins&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::856C0647-640A-4293-B2AF-949A47F6D5FF::net6.0::SantaTrackerTests.SantaPredictionServiceTests.GetMinutesToNextStop_ShouldReturn_CorrectMinutes&lt;/TestId&gt;
     &lt;/TestAncestor&gt;
   &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String>

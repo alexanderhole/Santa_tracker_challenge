@@ -6,7 +6,7 @@ public class Pixel
         IsSanta = isSanta;
     }
 
-    public bool IsSanta { get; set; }
+    public bool IsSanta { get; }
 
-    public char PixelValue { get; set; }
+    public char PixelValue { get; }
 }

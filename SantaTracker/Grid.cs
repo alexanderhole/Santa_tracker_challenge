@@ -36,5 +36,5 @@ public class Grid
         Console.ResetColor();
     }
 
-    public List<List<Pixel>> Pixels { get; set; }
+    public List<List<Pixel>> Pixels { get; }
 }
